@@ -29,7 +29,7 @@ conda env create -f environment.yml
 python -m test.motion -i 'path/to/video.mp4'
 
 # Old & busted
-python -m deprecated.quick -i '../samples/animals/01.mp4'
+python -m deprecated.quick -i 'path/to/video.mp'
 ```
 
 ## FAQ
