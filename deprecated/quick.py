@@ -212,7 +212,7 @@ def process(show_mask=False, show_source=True):
 
         start_process = time.time()
         mse_detect.update(img_src)
-        if mse_detect.get_difference() < 0.2:
+        if mse_detect.get_average() < 0.2:
             continue
         img_src, img_mask = create_motion_mask(img_src)
         duration = time.time() - start_process

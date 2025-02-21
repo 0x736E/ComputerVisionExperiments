@@ -65,13 +65,11 @@ class MotionOverlayMask:
         return self._bounding_boxes
 
     def _set_images(self, src=None, mask=None):
-
         self._total_area = 0
 
         if self._overlay_mode == MotionOverlayMode.NONE:
             self._overlay_mask = None
             self._motion_mask = None
-            self._overlay_mask = None
             self._rgb_mask = None
             self._src_resolution = INVALID_TUPLE
             self._mask_resolution = INVALID_TUPLE
@@ -81,15 +79,15 @@ class MotionOverlayMask:
         if (src is None) or (mask is None):
             return None
 
-        if self._overlay_mask is None:
-            self._overlay_mask = src
-        else:
-            np.copyto(self._overlay_mask, src)
+        # Create new array or resize existing one to match source dimensions
+        if self._overlay_mask is None or self._overlay_mask.shape != src.shape:
+            self._overlay_mask = np.zeros_like(src)
+        np.copyto(self._overlay_mask, src)
 
-        if self._motion_mask is None:
-            self._motion_mask = mask
-        else:
-            np.copyto(self._motion_mask, mask)
+        # Create new array or resize existing one to match mask dimensions
+        if self._motion_mask is None or self._motion_mask.shape != mask.shape:
+            self._motion_mask = np.zeros_like(mask)
+        np.copyto(self._motion_mask, mask)
 
         self._rgb_mask = np.zeros((mask.shape[0], mask.shape[1], 3), dtype=np.uint8)
         self._bounding_boxes.resize(0, refcheck=False)
