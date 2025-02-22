@@ -46,9 +46,3 @@ python -m deprecated.quick -i 'path/to/video.mp'
 
 The following image is an example mask produced by MOG2 Background Subtraction alongside additional processing:
 ![MOG2 Mask Example](./docs/mog2_mask.png)
-
-#### What's with all the nested expressions? 
-> Performance, primarily. 
-> 
-> Python is a pass-by-value language, and constantly creating values and re-assigning them has a performance impact
-> which becomes noticeable at the speed we are processing images at.
