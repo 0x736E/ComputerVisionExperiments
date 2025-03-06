@@ -1,0 +1,10 @@
+[package]
+name = "RustyVision"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+opencv = "0.94.2"
+structopt = "0.3.26"
+tokio = {  version = "1.43.0", features = ["full"] }
+
