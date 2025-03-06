@@ -17,4 +17,4 @@ those so-called 'Regions Of Interest' (ROI)
 **Example of MOG2 Mask Output**
 
 The following image is an example mask produced by MOG2 Background Subtraction alongside additional processing:
-![MOG2 Mask Example](../docs/mog2_mask.png)
+![MOG2 Mask Example](./docs/mog2_mask.png)
